@@ -1,0 +1,23 @@
+{
+		"name": "ngplaces/api",
+		"description": "A simple api that return data about nigerian states",
+		"license": "MIT",
+    "require": {
+        "slim/slim": "^2.6",
+        "ibonly/potato-orm": "dev-master"
+    },
+
+    "autoload": {
+    	"classmap": [
+    		"src"
+    	],
+    	"psr-4": {
+    		"NgPlaces\\Api\\": "src/"
+    	}
+    },
+    "autoload-dev": {
+    	"classmap": [
+    		"test/"
+    	]
+    }
+}
