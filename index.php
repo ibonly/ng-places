@@ -19,5 +19,20 @@ $app->get('/', function() use ($app) {
 });
 
 
+$app->get('/api/v1/states', function() use ($app) {
+	return 'States list';
+});
+
+
+$app->get('/api/v1/states/:state_name', function() use ($app) {
+	return 'Name of state, capital city and number of lgas';
+});
+
+
+$app->get('/api/v1/states/:state_name/:lgas', function() use (app) {
+	return 'list of lgas in the states',
+});
+
+
 
 $app->run();
