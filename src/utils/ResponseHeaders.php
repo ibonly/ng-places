@@ -10,8 +10,7 @@ class ResponseHeaders
 	public function getJsonHeaders(Slim $app)
 	{
 		$response = $app->response();
-		$reponse->header('Content-Type', 'application/json');
-		
+		$response->header('Content-Type', 'application/json');
 		return $response;
 	}
 }

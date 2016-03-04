@@ -3,42 +3,66 @@
 namespace NgPlaces\Api\Controllers;
 
 use Slim\Slim;
+use NgPlaces\Api\Models\State;
 use NgPlaces\Api\Utils\ResponseHeaders;
+
 
 class StatesController
 {
 
 	private $headers;
+	private $app;
+	private $lga;
+	private $state;
 
-	public function __construct()
+	public function __construct(Slim $app)
 	{
-		$this->headers = new ResposeHeaders();
+		$this->app = $app;
+		$this->state = new State();
+		$this->headers = new ResponseHeaders();
+		$this->lga = new LgaController($this->app);
 	}
 
-	public function getAllStates(Slim $app)
+	public function getAll()
 	{
+		$response = $this->headers->getJsonHeaders($this->app);
 
-		$response = $this->headers->getJsonHeaders($app);
 
-		//TODO: fetch all the state names from the db
-		//TODO: create a response object
-		//TODO: cast the db result to json
-		//TODO: return the response
+		try {
+			$states = json_encode($this->state->getAll());
+			$response->body($states);
+			$response->status(200);	
+		}catch(Excption $e) {
+			$response->body(json_encode(['error', 'An error occured']));
+			$response->status(500);
+		}
+
+		return $response;
+	}
+
+	public function getState(string $stateName) 
+	{
+		$response = $this->headers->getJsonHeaders($this->app);
+
+		try {
+			$state = json_encode($this->state->where(['state_name' => $stateName])->all());
+			$response->status(200);
+			$response->body($state);
+
+		} catch(Excepton $e) {
+			$response->status(404);
+			$response->body(['error' => 'Not found']);
+		}
+
+		return $response;
 	}
 
 
-	public function getState(Slim $app, string $stateName) 
+
+	public function getLgas(string $state)
 	{
-			$response = $this->headers->getJsonHeaders($app);
-	}
-
-
-
-	public function getLgas(Slim $app, string $state)
-	{
-		$reponse = $this->headers->getJsonHeaders($app);
-
-
+		$stateLgas = $this->lga->getStateLgas($state);
+		return $stateLgas;
 	}
 
 

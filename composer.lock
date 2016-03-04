@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad092ae9d3ef456c228ddbc332c4d91b",
+    "hash": "69b784195bd77f0615adb58157166c2c",
     "content-hash": "b35f0e988362663b711ec953afa64a89",
     "packages": [
         {
@@ -40,12 +40,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/andela-iadeniyi/Potato-ORM.git",
-                "reference": "da38536b41d0673984831ead755fc8f92e0d9cf4"
+                "reference": "50ed3be33ee1e7734b61fc8091ec793d8ae4e91d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andela-iadeniyi/Potato-ORM/zipball/da38536b41d0673984831ead755fc8f92e0d9cf4",
-                "reference": "da38536b41d0673984831ead755fc8f92e0d9cf4",
+                "url": "https://api.github.com/repos/andela-iadeniyi/Potato-ORM/zipball/50ed3be33ee1e7734b61fc8091ec793d8ae4e91d",
+                "reference": "50ed3be33ee1e7734b61fc8091ec793d8ae4e91d",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                     "email": "ibonly01@gmail.com"
                 }
             ],
-            "time": "2015-12-03 14:51:25"
+            "time": "2016-03-04 12:18:36"
         },
         {
             "name": "php-di/invoker",
