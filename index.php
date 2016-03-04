@@ -29,8 +29,8 @@ $app->get('/api/v1/states/:state_name', function() use ($app) {
 });
 
 
-$app->get('/api/v1/states/:state_name/:lgas', function() use (app) {
-	return 'list of lgas in the states',
+$app->get('/api/v1/states/:state_name/:lgas', function() use ($app) {
+	return 'list of lgas in the states';
 });
 
 
