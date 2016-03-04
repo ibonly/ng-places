@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4ec719efed4af84a732026f1176acc2",
-    "content-hash": "0762c1fb80d9c18ed34377c3acc52326",
+    "hash": "46e9b45a520d25ed164b51ca97f0c7af",
+    "content-hash": "e28cf3d1d08bdc43b1f67ffce77f44a5",
     "packages": [
         {
             "name": "ibonly/potato-orm",
@@ -154,6 +154,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.0"
+    },
     "platform-dev": []
 }
