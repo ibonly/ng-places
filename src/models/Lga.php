@@ -8,5 +8,5 @@ use Ibonly\PotatoORM\Model;
 */
 class Lga extends Model
 {
-
+	protected $fillables = [];
 }
