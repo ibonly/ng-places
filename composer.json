@@ -4,9 +4,8 @@
 		"license": "MIT",
     "require": {
         "slim/slim": "^2.6",
-        "ibonly/potato-orm": "dev-master",
-        "php": "^7.0",
-				"php-di/php-di": "^5.2"
+        "ibonly/potato-orm": "~1.0",
+        "php": "^7.0"
     },
 
     "autoload": {
