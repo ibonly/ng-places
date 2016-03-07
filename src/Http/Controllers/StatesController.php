@@ -27,12 +27,11 @@ class StatesController
 	{
 		$response = $this->headers->getJsonHeaders($this->app);
 
-
 		try {
-			$states = json_encode($this->state->getAll());
+			$states = $this->state->getAll()->toJson();
 			$response->body($states);
 			$response->status(200);	
-		}catch(Excption $e) {
+		}catch(Exception $e) {
 			$response->body(json_encode(['error', 'An error occured']));
 			$response->status(500);
 		}
