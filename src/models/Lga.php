@@ -8,5 +8,5 @@ use Ibonly\PotatoORM\Model;
 */
 class Lga extends Model
 {
-	protected $fillables = [];
+	protected $fillables = ['state_code', 'lga_name'];
 }

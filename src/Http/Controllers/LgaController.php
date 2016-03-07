@@ -38,7 +38,7 @@ class LgaController
 		
 		try{
 			$stateCode = $this->state->where(['state_name' => $state])->first()->state_code;
-			$lgas = json_encode($this->lga->where(['state_code'=> $stateCode])->all());
+			$lgas = $this->lga->where(['state_code'=> $stateCode])->all();
 			$response->status(200);
 			$response->body($lgas);
 		} catch (DataNotFoundException $e) {

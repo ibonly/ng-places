@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "ibonly/potato-orm",
-            "version": "v1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andela-iadeniyi/Potato-ORM.git",
-                "reference": "7392e8ba8fc9737c1cf3f75fdd1eb2f389150b87"
+                "reference": "edf4b9eff5096db5ef9af528939120c138350c2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andela-iadeniyi/Potato-ORM/zipball/7392e8ba8fc9737c1cf3f75fdd1eb2f389150b87",
-                "reference": "7392e8ba8fc9737c1cf3f75fdd1eb2f389150b87",
+                "url": "https://api.github.com/repos/andela-iadeniyi/Potato-ORM/zipball/edf4b9eff5096db5ef9af528939120c138350c2c",
+                "reference": "edf4b9eff5096db5ef9af528939120c138350c2c",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                     "email": "ibonly01@gmail.com"
                 }
             ],
-            "time": "2016-03-06 20:54:31"
+            "time": "2016-03-07 09:08:43"
         },
         {
             "name": "slim/slim",

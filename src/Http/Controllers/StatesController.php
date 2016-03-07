@@ -28,7 +28,7 @@ class StatesController
 		$response = $this->headers->getJsonHeaders($this->app);
 
 		try {
-			$states = $this->state->getAll()->toJson();
+			$states = $this->state->getAll()->all();
 			$response->body($states);
 			$response->status(200);	
 		}catch(Exception $e) {
@@ -44,7 +44,7 @@ class StatesController
 		$response = $this->headers->getJsonHeaders($this->app);
 
 		try {
-			$state = json_encode($this->state->where(['state_name' => $stateName])->all());
+			$state = $this->state->where(['state_name' => $stateName])->all();
 			$response->status(200);
 			$response->body($state);
 
