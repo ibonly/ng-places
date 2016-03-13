@@ -3,7 +3,7 @@
 require_once('vendor/autoload.php');
 
 use Slim\Slim;
-
+use NgPlaces\Api\Controllers\StatesController;
 
 $app = new Slim([
 	'debug' => true
@@ -20,17 +20,24 @@ $app->get('/', function() use ($app) {
 
 
 $app->get('/api/v1/states', function() use ($app) {
-	return 'States list';
+		$statesController = new StatesController($app);
+		return $statesController->getAll();
 });
 
 
-$app->get('/api/v1/states/:state_name', function() use ($app) {
-	return 'Name of state, capital city and number of lgas';
+$app->get('/api/v1/states/:state_name', function($stateName) use ($app) {
+	$statesController = new StatesController($app);
+	return $statesController->getState($stateName);
+});
+
+$app->get('/api/v1/states/:state_name/code', function($stateName) use ($app) {
+		echo 'State Code';
 });
 
 
-$app->get('/api/v1/states/:state_name/:lgas', function() use ($app) {
-	return 'list of lgas in the states';
+$app->get('/api/v1/states/:state_name/lgas', function($stateName) use ($app) {
+		$statesController = new StatesController($app);
+		return $statesController->getLgas($stateName);
 });
 
 
