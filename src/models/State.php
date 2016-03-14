@@ -8,5 +8,5 @@ use Ibonly\PotatoORM\Model;
 */
 class State extends Model
 {
-	protected $fillables = ['state_code'];
+	protected $fillables = ['id'];
 }

@@ -28,7 +28,7 @@ class StatesController
 		$response = $this->headers->getJsonHeaders($this->app);
 
 		try {
-			$states = $this->state->getAll()->toJson();
+			$states = $this->state->getALL()->all();
 			$response->body($states);
 			$response->status(200);	
 		}catch(Exception $e) {
