@@ -16,11 +16,11 @@ class LgaController
 	private $state;
 
 	public function __construct(Slim $app)
-	{	
-			$this->app = $app;
-			$this->lga = new Lga();
-			$this->state = new State();
-			$this->headers = new ResponseHeaders();
+	{
+		$this->app = $app;
+		$this->lga = new Lga();
+		$this->state = new State();
+		$this->headers = new ResponseHeaders();
 	}
 
 
@@ -28,14 +28,13 @@ class LgaController
 	{
 		$response = $this->headers->getJSonHeaders();
 
-		//return all the states
 	}
 
 
 	public function getStateLgas(string $state)
 	{
 		$response = $this->headers->getJsonHeaders($this->app);
-		
+
 		try{
 			$stateCode = $this->state->where(['state_name' => $state])->first()->state_code;
 			$lgas = $this->lga->where(['state_code'=> $stateCode])->all();
@@ -45,7 +44,6 @@ class LgaController
 			$response->status(404);
 			$response->body(json_encode(['error' => 'Not found']));
 		}
-
 		return $response;
 	}
 }
