@@ -23,29 +23,17 @@ class LgaController
 			$this->headers = new ResponseHeaders();
 	}
 
-
-	public function getAll()
-	{
-		$response = $this->headers->getJSonHeaders();
-
-		//return all the states
-	}
-
-
+	/**
+	 * Get all the lgas that belong to a state
+	 * 
+	 * @param  string $state
+	 * @return JSON
+	 */
 	public function getStateLgas(string $state)
 	{
-		$response = $this->headers->getJsonHeaders($this->app);
-		
-		try{
-			$stateCode = $this->state->where(['state_name' => $state])->first()->state_code;
-			$lgas = json_encode($this->lga->where(['state_code'=> $stateCode])->all());
-			$response->status(200);
-			$response->body($lgas);
-		} catch (DataNotFoundException $e) {
-			$response->status(404);
-			$response->body(json_encode(['error' => 'Not found']));
-		}
+		$lga = $this->state->where(['state_name' => $state])->orWhere(['state_code' => $state])->first()->state_code;
+		$lga = $this->lga->where(['state_code' => $lga])->get();
 
-		return $response;
+		return $lga;
 	}
 }

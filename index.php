@@ -1,6 +1,7 @@
 <?php
 
 require_once('vendor/autoload.php');
+require_once('src/Http/Database/database.php');
 
 use Slim\Slim;
 use NgPlaces\Api\Controllers\StatesController;
@@ -24,16 +25,10 @@ $app->get('/api/v1/states', function() use ($app) {
 		return $statesController->getAll();
 });
 
-
 $app->get('/api/v1/states/:state_name', function($stateName) use ($app) {
 	$statesController = new StatesController($app);
 	return $statesController->getState($stateName);
 });
-
-$app->get('/api/v1/states/:state_name/code', function($stateName) use ($app) {
-		echo 'State Code';
-});
-
 
 $app->get('/api/v1/states/:state_name/lgas', function($stateName) use ($app) {
 		$statesController = new StatesController($app);

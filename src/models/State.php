@@ -2,11 +2,13 @@
 
 namespace NgPlaces\Api\Models;
 
-use Ibonly\PotatoORM\Model;
+use Illuminate\Database\Eloquent\Model;
 /**
 *
 */
 class State extends Model
 {
-	protected $fillables = ['id'];
+	protected $table = "states";
+
+	protected $fillables = ['state_code', 'state_name', 'state_capital'];
 }

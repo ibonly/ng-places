@@ -2,11 +2,13 @@
 
 namespace NgPlaces\Api\Models;
 
-use Ibonly\PotatoORM\Model;
+use Illuminate\Database\Eloquent\Model;
+
 /**
 *
 */
 class Lga extends Model
 {
-	protected $fillables = [];
+	protected $table = "lgas";
+	protected $fillables = ['state_code', 'lga_name'];
 }

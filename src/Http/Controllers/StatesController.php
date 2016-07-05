@@ -2,6 +2,7 @@
 
 namespace NgPlaces\Api\Controllers;
 
+use Exception;
 use Slim\Slim;
 use NgPlaces\Api\Models\State;
 use NgPlaces\Api\Utils\ResponseHeaders;
@@ -23,28 +24,38 @@ class StatesController
 		$this->lga = new LgaController($this->app);
 	}
 
+	/**
+	 * Return all states
+	 * 
+	 * @return JSON
+	 */
 	public function getAll()
 	{
 		$response = $this->headers->getJsonHeaders($this->app);
 
 		try {
-			$states = $this->state->getALL()->all();
-			$response->body($states);
+			$response->body($this->state->all());
 			$response->status(200);	
 		}catch(Exception $e) {
 			$response->body(json_encode(['error', 'An error occured']));
 			$response->status(500);
 		}
 
-		return $response;
+		return $response->body();
 	}
 
+	/**
+	 * Return the details of a particular state
+	 * 
+	 * @param  string $stateName
+	 * @return JSON
+	 */
 	public function getState(string $stateName) 
 	{
 		$response = $this->headers->getJsonHeaders($this->app);
 
 		try {
-			$state = json_encode($this->state->where(['state_name' => $stateName])->all());
+			$state = $this->state->where(['state_name' => $stateName])->get();
 			$response->status(200);
 			$response->body($state);
 
@@ -56,12 +67,27 @@ class StatesController
 		return $response;
 	}
 
-
-
+	/**
+	 * Return all the lgas of a state
+	 * 
+	 * @param  string $state
+	 * @return JSON
+	 */
 	public function getLgas(string $state)
 	{
-		$stateLgas = $this->lga->getStateLgas($state);
-		return $stateLgas;
+		$response = $this->headers->getJsonHeaders($this->app);
+
+		try {
+			$stateLgas = $this->lga->getStateLgas($state);
+			$response->status(200);
+			$response->body($stateLgas);
+
+		} catch(Excepton $e) {
+			$response->status(404);
+			$response->body(['error' => 'Not found']);
+		}
+
+		return $response;
 	}
 
 

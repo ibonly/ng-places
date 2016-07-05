@@ -4,8 +4,10 @@
 		"license": "MIT",
     "require": {
         "slim/slim": "^2.6",
-        "ibonly/potato-orm": "~1.0",
-        "php": "^7.0"
+        "php": "^7.0",
+		"illuminate/database": "^5.2",
+				"vlucas/phpdotenv": "^2.3",
+				"illuminate/events": "^5.2"
     },
 
     "autoload": {
